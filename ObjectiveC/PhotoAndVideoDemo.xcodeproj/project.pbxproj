@@ -13,6 +13,7 @@
 		22D431601C06A5FA001257B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D4315E1C06A5FA001257B5 /* Main.storyboard */; };
 		22D431621C06A5FA001257B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D431611C06A5FA001257B5 /* Assets.xcassets */; };
 		22D431651C06A5FA001257B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D431631C06A5FA001257B5 /* LaunchScreen.storyboard */; };
+		22D4316E1C0833E4001257B5 /* PVPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D4316D1C0833E4001257B5 /* PVPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		22D431611C06A5FA001257B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22D431641C06A5FA001257B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D431661C06A5FA001257B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22D4316C1C0833E4001257B5 /* PVPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPickerViewController.h; sourceTree = "<group>"; };
+		22D4316D1C0833E4001257B5 /* PVPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVPickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				22D431631C06A5FA001257B5 /* LaunchScreen.storyboard */,
 				22D431661C06A5FA001257B5 /* Info.plist */,
 				22D431551C06A5FA001257B5 /* Supporting Files */,
+				22D4316C1C0833E4001257B5 /* PVPickerViewController.h */,
+				22D4316D1C0833E4001257B5 /* PVPickerViewController.m */,
 			);
 			path = PhotoAndVideoDemo;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 				TargetAttributes = {
 					22D431511C06A5FA001257B5 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = VBVAT8HGJQ;
 					};
 				};
 			};
@@ -151,6 +157,7 @@
 			files = (
 				22D4315D1C06A5FA001257B5 /* ViewController.m in Sources */,
 				22D4315A1C06A5FA001257B5 /* AppDelegate.m in Sources */,
+				22D4316E1C0833E4001257B5 /* PVPickerViewController.m in Sources */,
 				22D431571C06A5FA001257B5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,10 +268,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PhotoAndVideoDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jc.PhotoAndVideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -272,10 +283,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PhotoAndVideoDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jc.PhotoAndVideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -298,6 +313,7 @@
 				22D4316B1C06A5FA001257B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RjC-LU-Kum">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,128 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiJ-jb-kQx" userLabel="imagePickerButton">
+                                <rect key="frame" x="217" y="114" width="167" height="30"/>
+                                <state key="normal" title="UIImagePickerController"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yiJ-jb-kQx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Fg0-X8-6dM"/>
+                            <constraint firstItem="yiJ-jb-kQx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jvr-5t-lZx"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ojb-Tz-IJ3"/>
+                    <connections>
+                        <outlet property="pickerButton" destination="yiJ-jb-kQx" id="aej-8V-2jQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="822" y="453"/>
+        </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="XYg-Ot-nXg">
+            <objects>
+                <viewController storyboardIdentifier="PVPickerViewController" id="7Ag-nd-32P" customClass="PVPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rUC-Lg-OYg"/>
+                        <viewControllerLayoutGuide type="bottom" id="tF6-DE-7zg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fQw-a7-rIj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-Rc-BOd">
+                                <rect key="frame" x="10" y="551" width="185" height="29"/>
+                                <segments>
+                                    <segment title="Library"/>
+                                    <segment title="Camera"/>
+                                    <segment title="Album"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ltg-YQ-pjG">
+                                <rect key="frame" x="250" y="551" width="115" height="29"/>
+                                <segments>
+                                    <segment title="Picture"/>
+                                    <segment title="Video"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-WS-n0U">
+                                <rect key="frame" x="272" y="589" width="93" height="29"/>
+                                <segments>
+                                    <segment title="Rear"/>
+                                    <segment title="Front"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y1j-oN-pin">
+                                <rect key="frame" x="10" y="589" width="131" height="29"/>
+                                <segments>
+                                    <segment title="Auto"/>
+                                    <segment title="On"/>
+                                    <segment title="Off"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGO-tJ-NY1">
+                                <rect key="frame" x="171" y="627" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tmo-7x-hfQ">
+                                <rect key="frame" x="10" y="30" width="355" height="355"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tmo-7x-hfQ" secondAttribute="height" multiplier="1:1" id="9VX-05-yHs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GGO-tJ-NY1" firstAttribute="centerX" secondItem="fQw-a7-rIj" secondAttribute="centerX" id="2XY-z9-caJ"/>
+                            <constraint firstItem="tmo-7x-hfQ" firstAttribute="top" secondItem="rUC-Lg-OYg" secondAttribute="bottom" constant="10" id="3X7-rD-ubg"/>
+                            <constraint firstAttribute="trailing" secondItem="vJm-WS-n0U" secondAttribute="trailing" constant="10" id="Fwg-F7-g2U"/>
+                            <constraint firstItem="tF6-DE-7zg" firstAttribute="top" secondItem="GGO-tJ-NY1" secondAttribute="bottom" constant="10" id="HJk-oh-vMT"/>
+                            <constraint firstAttribute="trailing" secondItem="tmo-7x-hfQ" secondAttribute="trailing" constant="10" id="MCS-Mc-OMD"/>
+                            <constraint firstItem="vJm-WS-n0U" firstAttribute="trailing" secondItem="Ltg-YQ-pjG" secondAttribute="trailing" id="OFE-Ii-q0f"/>
+                            <constraint firstItem="y1j-oN-pin" firstAttribute="top" secondItem="CbI-Rc-BOd" secondAttribute="bottom" constant="10" id="QS1-PM-lJj"/>
+                            <constraint firstItem="y1j-oN-pin" firstAttribute="leading" secondItem="fQw-a7-rIj" secondAttribute="leading" constant="10" id="bZv-tM-Il2"/>
+                            <constraint firstItem="vJm-WS-n0U" firstAttribute="top" secondItem="Ltg-YQ-pjG" secondAttribute="bottom" constant="10" id="htK-tz-2Sj"/>
+                            <constraint firstItem="tF6-DE-7zg" firstAttribute="top" secondItem="vJm-WS-n0U" secondAttribute="bottom" constant="50" id="kPF-Fb-U5u"/>
+                            <constraint firstItem="tF6-DE-7zg" firstAttribute="top" secondItem="y1j-oN-pin" secondAttribute="bottom" constant="50" id="pzh-Xu-hhC"/>
+                            <constraint firstItem="tmo-7x-hfQ" firstAttribute="leading" secondItem="fQw-a7-rIj" secondAttribute="leading" constant="10" id="quq-ig-t54"/>
+                            <constraint firstItem="y1j-oN-pin" firstAttribute="leading" secondItem="CbI-Rc-BOd" secondAttribute="leading" id="xeA-DU-h3O"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="CameraFlashControl" destination="y1j-oN-pin" id="vbb-Uf-ZZP"/>
+                        <outlet property="cameraDeviceControl" destination="vJm-WS-n0U" id="CQv-nG-Hpn"/>
+                        <outlet property="captureModeControl" destination="Ltg-YQ-pjG" id="tJp-ZW-A6i"/>
+                        <outlet property="photoImageView" destination="tmo-7x-hfQ" id="c9g-rw-NN4"/>
+                        <outlet property="sourceTypeControl" destination="CbI-Rc-BOd" id="vDj-jm-nTz"/>
+                        <outlet property="startButton" destination="GGO-tJ-NY1" id="h04-S9-spe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HeW-yP-dGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="453"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vhD-Nf-z83">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RjC-LU-Kum" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fMe-V0-huq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="L10-cu-18B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Uf-6Q-yCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="453"/>
         </scene>
     </scenes>
 </document>
