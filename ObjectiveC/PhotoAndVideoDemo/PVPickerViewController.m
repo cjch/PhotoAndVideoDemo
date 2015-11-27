@@ -52,7 +52,7 @@
         pvc.cameraDevice = self.cameraDeviceControl.selectedSegmentIndex;
         pvc.cameraFlashMode = self.CameraFlashControl.selectedSegmentIndex;
     }
-    
+    pvc.allowsEditing = YES;
     pvc.delegate = self;
     [self presentViewController:pvc animated:YES completion:nil];
 }
@@ -63,8 +63,9 @@
     NSString *type = info[UIImagePickerControllerMediaType];
     if ([type isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *originImage = info[UIImagePickerControllerOriginalImage];
-        self.photoImageView.image = originImage;
-        UIImageWriteToSavedPhotosAlbum(originImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        UIImage *cropedImage = info[UIImagePickerControllerEditedImage];
+        self.photoImageView.image = cropedImage ?: originImage;
+        UIImageWriteToSavedPhotosAlbum(cropedImage ?: originImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         
     } else {
         NSURL *videoPath = info[UIImagePickerControllerMediaURL];
