@@ -14,6 +14,7 @@
 		22D431621C06A5FA001257B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D431611C06A5FA001257B5 /* Assets.xcassets */; };
 		22D431651C06A5FA001257B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D431631C06A5FA001257B5 /* LaunchScreen.storyboard */; };
 		22D4316E1C0833E4001257B5 /* PVPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D4316D1C0833E4001257B5 /* PVPickerViewController.m */; };
+		22D431701C0851B9001257B5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D4316F1C0851B8001257B5 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		22D431661C06A5FA001257B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22D4316C1C0833E4001257B5 /* PVPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPickerViewController.h; sourceTree = "<group>"; };
 		22D4316D1C0833E4001257B5 /* PVPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVPickerViewController.m; sourceTree = "<group>"; };
+		22D4316F1C0851B8001257B5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D431701C0851B9001257B5 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +48,7 @@
 		22D431491C06A5FA001257B5 = {
 			isa = PBXGroup;
 			children = (
+				22D4316F1C0851B8001257B5 /* MobileCoreServices.framework */,
 				22D431541C06A5FA001257B5 /* PhotoAndVideoDemo */,
 				22D431531C06A5FA001257B5 /* Products */,
 			);
@@ -271,7 +275,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PhotoAndVideoDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jc.PhotoAndVideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -286,7 +290,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PhotoAndVideoDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jc.PhotoAndVideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

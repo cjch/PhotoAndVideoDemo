@@ -7,6 +7,7 @@
 //
 
 #import "PVPickerViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface PVPickerViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -60,8 +61,18 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     NSString *type = info[UIImagePickerControllerMediaType];
+    if ([type isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *originImage = info[UIImagePickerControllerOriginalImage];
+        self.photoImageView.image = originImage;
+        UIImageWriteToSavedPhotosAlbum(originImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        
+    } else {
+        NSURL *videoPath = info[UIImagePickerControllerMediaURL];
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(videoPath.path)) {
+            UISaveVideoAtPathToSavedPhotosAlbum(videoPath.path, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+        }
+    }
     
-    self.photoImageView.image = info[UIImagePickerControllerOriginalImage];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -69,6 +80,25 @@
 {
     NSLog(@"cancel capture");
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        NSLog(@"save image error: %@", error.description);
+    } else {
+        NSLog(@"save image successfully");
+    }
+}
+
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        NSLog(@"save video error: %@", error.description);
+    } else {
+        NSLog(@"save video successfully");
+    }
 }
 
 @end
