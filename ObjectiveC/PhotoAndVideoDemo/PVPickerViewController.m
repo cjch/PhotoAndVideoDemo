@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
+@property (nonatomic, strong) UIImagePickerController *picker;
+
 @end
 
 @implementation PVPickerViewController
@@ -43,18 +45,19 @@
         return;
     }
     
-    UIImagePickerController *pvc = [[UIImagePickerController alloc]init];
-    NSArray *availableTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-    pvc.mediaTypes = availableTypes;
-    pvc.sourceType = self.sourceTypeControl.selectedSegmentIndex;
-    if (pvc.sourceType == UIImagePickerControllerSourceTypeCamera) {
-        pvc.cameraCaptureMode = self.captureModeControl.selectedSegmentIndex;
-        pvc.cameraDevice = self.cameraDeviceControl.selectedSegmentIndex;
-        pvc.cameraFlashMode = self.CameraFlashControl.selectedSegmentIndex;
+    self.picker.sourceType = self.sourceTypeControl.selectedSegmentIndex;
+    if (self.picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        self.picker.cameraCaptureMode = self.captureModeControl.selectedSegmentIndex;
+        self.picker.cameraDevice = self.cameraDeviceControl.selectedSegmentIndex;
+        self.picker.cameraFlashMode = self.CameraFlashControl.selectedSegmentIndex;
     }
-    pvc.allowsEditing = YES;
-    pvc.delegate = self;
-    [self presentViewController:pvc animated:YES completion:nil];
+    
+    [self presentViewController:self.picker animated:YES completion:nil];
+}
+
+- (void)onSave
+{
+    [self.picker takePicture];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -100,6 +103,44 @@
     } else {
         NSLog(@"save video successfully");
     }
+}
+
+#pragma mark - getter
+- (UIImagePickerController *)picker
+{
+    if (_picker) {
+        return _picker;
+    }
+    
+    _picker = [[UIImagePickerController alloc]init];
+    NSArray *availableTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+    //    pvc.mediaTypes =@[(NSString *)kUTTypeImage];
+    _picker.mediaTypes = availableTypes;
+    _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    _picker.allowsEditing = YES;
+
+    _picker.showsCameraControls = NO;
+    _picker.cameraOverlayView = self.customView;
+    
+    _picker.delegate = self;
+    
+    return _picker;
+}
+
+- (UIView *)customView
+{
+    CGFloat height = 80;
+    UIView *cView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - height, self.view.frame.size.width, height)];
+    cView.backgroundColor = [UIColor clearColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(20, 20, 40, 40);
+    button.backgroundColor = [UIColor redColor];
+    button.layer.cornerRadius = 20;
+    button.layer.masksToBounds = YES;
+    [button addTarget:self action:@selector(onSave) forControlEvents:UIControlEventTouchUpInside];
+    [cView addSubview:button];
+    return cView;
 }
 
 @end

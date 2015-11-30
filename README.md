@@ -7,7 +7,9 @@
 * delegate: 实现UINavigationControllerDelegate, UIImagePickerControllerDelegate  
 
 * sourceType: 相机(拍摄模式)，照片库(默认)，相册
-* mediaTypes: 获取的数据类型：默认为图像kUTTypeImage
+* mediaTypes: 获取的数据类型：默认为图像kUTTypeImage  
+kUTTypeImage定义在MobileCoreServices.framework中
+
 * allowsEditing  
 
 * videoMaximumDuration: 录制视频的最长时间，单位为s，默认是10分钟  
