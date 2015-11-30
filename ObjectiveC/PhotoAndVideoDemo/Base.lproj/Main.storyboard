@@ -21,22 +21,75 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiJ-jb-kQx" userLabel="imagePickerButton">
                                 <rect key="frame" x="217" y="114" width="167" height="30"/>
                                 <state key="normal" title="UIImagePickerController"/>
+                                <connections>
+                                    <action selector="onImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="snx-Aj-dCb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQq-oj-XHm">
+                                <rect key="frame" x="252" y="164" width="96" height="30"/>
+                                <state key="normal" title="AVFoundation"/>
+                                <connections>
+                                    <action selector="onAVFoundation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P7V-KQ-lVB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lQq-oj-XHm" firstAttribute="top" secondItem="yiJ-jb-kQx" secondAttribute="bottom" constant="20" id="8gQ-UJ-432"/>
                             <constraint firstItem="yiJ-jb-kQx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Fg0-X8-6dM"/>
+                            <constraint firstItem="lQq-oj-XHm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cGO-EG-tgB"/>
                             <constraint firstItem="yiJ-jb-kQx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jvr-5t-lZx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ojb-Tz-IJ3"/>
-                    <connections>
-                        <outlet property="pickerButton" destination="yiJ-jb-kQx" id="aej-8V-2jQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="453"/>
+        </scene>
+        <!--Foundation View Controller-->
+        <scene sceneID="Hsb-hG-Mzg">
+            <objects>
+                <viewController storyboardIdentifier="AVFoundationViewController" id="aav-5m-EMn" customClass="AVFoundationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sh2-E7-EnA"/>
+                        <viewControllerLayoutGuide type="bottom" id="mY9-Vg-h0W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ffd-pV-OwE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmQ-Z0-C7G">
+                                <rect key="frame" x="10" y="30" width="355" height="355"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bmQ-Z0-C7G" secondAttribute="height" multiplier="1:1" id="fAh-41-M56"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SS-M1-ICL">
+                                <rect key="frame" x="172" y="617" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="onStart:" destination="aav-5m-EMn" eventType="touchUpInside" id="7Gr-px-82Q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bmQ-Z0-C7G" secondAttribute="trailing" constant="10" id="19J-2s-9fn"/>
+                            <constraint firstItem="3SS-M1-ICL" firstAttribute="centerX" secondItem="ffd-pV-OwE" secondAttribute="centerX" id="6Xc-tv-d7b"/>
+                            <constraint firstItem="mY9-Vg-h0W" firstAttribute="top" secondItem="3SS-M1-ICL" secondAttribute="bottom" constant="20" id="GKD-rO-A94"/>
+                            <constraint firstItem="bmQ-Z0-C7G" firstAttribute="top" secondItem="sh2-E7-EnA" secondAttribute="bottom" constant="10" id="Koy-ji-0lR"/>
+                            <constraint firstItem="bmQ-Z0-C7G" firstAttribute="leading" secondItem="ffd-pV-OwE" secondAttribute="leading" constant="10" id="oOj-8e-8ao"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="bmQ-Z0-C7G" id="heN-WZ-hxX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2X-VK-b4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822.5" y="1183.5"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="XYg-Ot-nXg">

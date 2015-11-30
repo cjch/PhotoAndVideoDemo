@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "PVPickerViewController.h"
+#import "AVFoundationViewController.h"
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *pickerButton;
+- (IBAction)onImagePicker:(UIButton *)sender;
+- (IBAction)onAVFoundation:(UIButton *)sender;
 
 @end
 
@@ -21,14 +23,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"PhotoAndVideo";
-    
-    [self.pickerButton addTarget:self action:@selector(onPickerButton) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)onPickerButton
-{
+- (IBAction)onImagePicker:(UIButton *)sender {
     PVPickerViewController *pvc = [PVPickerViewController getInstance];
     [self.navigationController pushViewController:pvc animated:YES];
+}
+
+- (IBAction)onAVFoundation:(UIButton *)sender {
+    AVFoundationViewController *avc = [AVFoundationViewController getInstance];
+    [self.navigationController pushViewController:avc animated:YES];
 }
 
 @end

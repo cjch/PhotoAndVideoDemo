@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222D01021C0BF5BF0083AD6E /* AVFoundationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222D01011C0BF5BF0083AD6E /* AVFoundationViewController.m */; };
+		227875421C0BFBA4001BBE92 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227875411C0BFBA4001BBE92 /* AVFoundation.framework */; };
 		22D431571C06A5FA001257B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D431561C06A5FA001257B5 /* main.m */; };
 		22D4315A1C06A5FA001257B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D431591C06A5FA001257B5 /* AppDelegate.m */; };
 		22D4315D1C06A5FA001257B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D4315C1C06A5FA001257B5 /* ViewController.m */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		222D01001C0BF5BF0083AD6E /* AVFoundationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFoundationViewController.h; sourceTree = "<group>"; };
+		222D01011C0BF5BF0083AD6E /* AVFoundationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVFoundationViewController.m; sourceTree = "<group>"; };
+		227875411C0BFBA4001BBE92 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		22D431521C06A5FA001257B5 /* PhotoAndVideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoAndVideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D431561C06A5FA001257B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22D431581C06A5FA001257B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227875421C0BFBA4001BBE92 /* AVFoundation.framework in Frameworks */,
 				22D431701C0851B9001257B5 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +54,7 @@
 		22D431491C06A5FA001257B5 = {
 			isa = PBXGroup;
 			children = (
+				227875411C0BFBA4001BBE92 /* AVFoundation.framework */,
 				22D4316F1C0851B8001257B5 /* MobileCoreServices.framework */,
 				22D431541C06A5FA001257B5 /* PhotoAndVideoDemo */,
 				22D431531C06A5FA001257B5 /* Products */,
@@ -76,6 +83,8 @@
 				22D431551C06A5FA001257B5 /* Supporting Files */,
 				22D4316C1C0833E4001257B5 /* PVPickerViewController.h */,
 				22D4316D1C0833E4001257B5 /* PVPickerViewController.m */,
+				222D01001C0BF5BF0083AD6E /* AVFoundationViewController.h */,
+				222D01011C0BF5BF0083AD6E /* AVFoundationViewController.m */,
 			);
 			path = PhotoAndVideoDemo;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 				22D4315D1C06A5FA001257B5 /* ViewController.m in Sources */,
 				22D4315A1C06A5FA001257B5 /* AppDelegate.m in Sources */,
 				22D4316E1C0833E4001257B5 /* PVPickerViewController.m in Sources */,
+				222D01021C0BF5BF0083AD6E /* AVFoundationViewController.m in Sources */,
 				22D431571C06A5FA001257B5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
