@@ -8,6 +8,7 @@
 
 #import "AVFoundationViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <CoreImage/CoreImage.h>
 
 @interface AVFoundationViewController () <AVCaptureVideoDataOutputSampleBufferDelegate>
 
@@ -52,9 +53,15 @@
     NSLog(@"video frame was written");
     
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.photoImageView.image = image;
-//    });
+    
+//    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+//    CIImage *iImage = [CIImage imageWithCVImageBuffer:imageBuffer]; //ios 9.0 and later
+//    UIImage *image = [UIImage imageWithCIImage:iImage scale:1 orientation:UIImageOrientationLeft];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.photoImageView.image = image;
+    });
+    
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
@@ -81,7 +88,7 @@
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
     
-    UIImage *image = [UIImage imageWithCGImage:cgImage];
+    UIImage *image = [UIImage imageWithCGImage:cgImage scale:1 orientation:UIImageOrientationRight];    // 修正图像，旋转90度。
     CGImageRelease(cgImage);
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
     
@@ -96,7 +103,7 @@
     }
     
     _captureSession = [[AVCaptureSession alloc] init];
-    _captureSession.sessionPreset = AVCaptureSessionPresetHigh;
+    _captureSession.sessionPreset = AVCaptureSessionPresetLow;  // 设置相机拍摄模式
     
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     __block AVCaptureDevice *backDevice = nil;
@@ -121,8 +128,9 @@
     
     // display method 1
     AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:_captureSession];
-    previewLayer.frame = self.photoImageView.frame;
-    [self.view.layer addSublayer:previewLayer];
+    previewLayer.frame = self.photoImageView.bounds;
+    previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;    // 显示模式
+    [self.photoImageView.layer addSublayer:previewLayer];
     
     // display method 2
     AVCaptureVideoDataOutput *videoOutput = [[AVCaptureVideoDataOutput alloc]init];
